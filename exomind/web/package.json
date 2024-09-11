@@ -152,7 +152,7 @@
     "protobufjs-cli": "^1.1.2",
     "style-loader": "^2.0.0",
     "ts-jest": "^29.1.2",
-    "ts-loader": "^8.3.0",
+    "ts-loader": "^9.2.1",
     "typescript": "^5.2.2",
     "url-loader": "^4.1.0",
     "webpack": "^4.47.0",
