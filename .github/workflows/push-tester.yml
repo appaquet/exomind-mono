@@ -9,7 +9,6 @@ on:
       - "v1.*"
 
 # TODO: try to move common chunks to composite actions: https://github.com/orgs/community/discussions/11771
-# TODO: exomind docker
 # TODO: ios release vs debug
 # TODO: ios upload archive
 
@@ -325,12 +324,12 @@ jobs:
           cd $GITHUB_WORKSPACE/assets/
 
           BUILD_PARAMS=""
-          #if [[ "${GITHUB_REF}" == "refs/heads/master" ]]; then
+          if [[ "${GITHUB_REF}" == "refs/heads/master" ]]; then
             BUILD_PARAMS="--push --tag appaquet/exomind:latest"
-            #elif "${GITHUB_REF}" == refs/tags/* ]]; then
-            #GIT_TAG="${GITHUB_REF/refs\/tags\//}"
-            #BUILD_PARAMS="--push --tag appaquet/exomind:GIT_TAG --tag appaquet/exomind:latest"
-            #fi
+          elif "${GITHUB_REF}" == refs/tags/* ]]; then
+            GIT_TAG="${GITHUB_REF/refs\/tags\//}"
+            BUILD_PARAMS="--push --tag appaquet/exomind:GIT_TAG --tag appaquet/exomind:latest"
+          fi
 
           export DOCKER_CLI_EXPERIMENTAL=enabled
           docker buildx build \
