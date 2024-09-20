@@ -8,7 +8,8 @@ on:
       - "v0.*"
       - "v1.*"
 
-# TODO: exocore docker
+# TODO: try to move common chunks to composite actions: https://github.com/orgs/community/discussions/11771
+# TODO: exocore docker, make sure it works
 # TODO: exomind docker
 # TODO: ios release vs debug
 # TODO: ios upload archive
@@ -235,11 +236,17 @@ jobs:
           mv exo.armv7-unknown-linux-gnueabihf assets/exo-arm
           chmod a+x assets/exo*
 
-      - name: Setup Docker
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Setup Docker builder
         run: |
           set -x
 
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          # echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
           # Allows build in arm for qemu
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
