@@ -9,9 +9,7 @@ pub struct Collection {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CollectionChild {
     #[prost(message, optional, tag = "1")]
-    pub collection: ::core::option::Option<
-        super::super::super::exocore::store::Reference,
-    >,
+    pub collection: ::core::option::Option<super::super::super::exocore::store::Reference>,
     #[prost(uint64, tag = "2")]
     pub weight: u64,
 }
@@ -38,10 +36,8 @@ pub struct Account {
     #[prost(enumeration = "AccountScope", repeated, tag = "4")]
     pub scopes: ::prost::alloc::vec::Vec<i32>,
     #[prost(map = "string, string", tag = "5")]
-    pub data: ::std::collections::HashMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
+    pub data:
+        ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EmailThread {
@@ -57,9 +53,7 @@ pub struct EmailThread {
     #[prost(string, tag = "5")]
     pub snippet: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "6")]
-    pub last_email: ::core::option::Option<
-        super::super::super::exocore::store::Reference,
-    >,
+    pub last_email: ::core::option::Option<super::super::super::exocore::store::Reference>,
     #[deprecated]
     #[prost(bool, tag = "7")]
     pub read: bool,
@@ -97,9 +91,7 @@ pub struct DraftEmail {
     #[prost(message, optional, tag = "1")]
     pub account: ::core::option::Option<super::super::super::exocore::store::Reference>,
     #[prost(message, optional, tag = "2")]
-    pub in_reply_to: ::core::option::Option<
-        super::super::super::exocore::store::Reference,
-    >,
+    pub in_reply_to: ::core::option::Option<super::super::super::exocore::store::Reference>,
     #[prost(message, repeated, tag = "3")]
     pub to: ::prost::alloc::vec::Vec<Contact>,
     #[prost(message, repeated, tag = "4")]
@@ -137,10 +129,8 @@ pub struct EmailAttachment {
     #[prost(string, tag = "5")]
     pub inline_placeholder: ::prost::alloc::string::String,
     #[prost(map = "string, string", tag = "6")]
-    pub data: ::std::collections::HashMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
+    pub data:
+        ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Note {

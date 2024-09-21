@@ -17,8 +17,7 @@ pub struct AuthTokenData {
     #[prost(message, optional, tag = "4")]
     pub expiration_date: ::core::option::Option<::prost_types::Timestamp>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct LocalNodeConfig {
     #[prost(string, tag = "1")]
     pub keypair: ::prost::alloc::string::String,
@@ -43,8 +42,7 @@ pub struct LocalNodeConfig {
     #[prost(message, optional, tag = "9")]
     pub chain: ::core::option::Option<ChainConfig>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct NodeAddresses {
     #[prost(string, repeated, tag = "1")]
     #[serde(default)]
@@ -53,8 +51,7 @@ pub struct NodeAddresses {
     #[serde(default)]
     pub http: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct NodeCellConfig {
     #[prost(string, tag = "3")]
     #[serde(default)]
@@ -74,8 +71,7 @@ pub mod node_cell_config {
     }
 }
 /// Entity store configuration for the node (i.e. not global)
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, ::prost::Message)]
 pub struct NodeStoreConfig {
     /// Entity index config.
     #[prost(message, optional, tag = "1")]
@@ -86,8 +82,7 @@ pub struct NodeStoreConfig {
     #[serde(default)]
     pub query_parallelism: ::core::option::Option<u32>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, ::prost::Message)]
 pub struct ChainConfig {
     /// Maximum size in bytes per segment. This is a soft limit since the last
     /// block could overflow that maximum. This should be small enough so
@@ -104,8 +99,7 @@ pub struct ChainConfig {
     pub segment_max_open_mmap: ::core::option::Option<u32>,
 }
 /// Configuration of the entity index
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, ::prost::Message)]
 pub struct EntityIndexConfig {
     /// What is the minimum depth that a block needs to be the chain to be
     /// indexed. This is required to lower the odds that we are going to
@@ -158,8 +152,7 @@ pub struct EntityIndexConfig {
     pub garbage_collector: ::core::option::Option<EntityGarbageCollectorConfig>,
 }
 /// Trait index configuration
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, ::prost::Message)]
 pub struct MutationIndexConfig {
     /// Number of indexing threads.
     #[prost(message, optional, tag = "1")]
@@ -175,8 +168,7 @@ pub struct MutationIndexConfig {
     pub entity_mutations_cache_size: ::core::option::Option<u32>,
 }
 /// Configuration for entity garbage collector.
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, ::prost::Message)]
 pub struct EntityGarbageCollectorConfig {
     /// How often the garbage collection process will run in seconds.
     ///
@@ -192,8 +184,7 @@ pub struct EntityGarbageCollectorConfig {
     #[serde(default)]
     pub queue_size: ::core::option::Option<u32>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct CellConfig {
     #[prost(string, tag = "1")]
     pub public_key: ::prost::alloc::string::String,
@@ -212,8 +203,7 @@ pub struct CellConfig {
     #[serde(default)]
     pub apps: ::prost::alloc::vec::Vec<CellApplicationConfig>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct CellNodeConfig {
     #[prost(message, optional, tag = "1")]
     pub node: ::core::option::Option<NodeConfig>,
@@ -223,8 +213,9 @@ pub struct CellNodeConfig {
 }
 /// Nested message and enum types in `CellNodeConfig`.
 pub mod cell_node_config {
-    #[derive(Serialize, Deserialize)]
     #[derive(
+        Serialize,
+        Deserialize,
         Clone,
         Copy,
         Debug,
@@ -233,7 +224,7 @@ pub mod cell_node_config {
         Hash,
         PartialOrd,
         Ord,
-        ::prost::Enumeration
+        ::prost::Enumeration,
     )]
     #[repr(i32)]
     pub enum Role {
@@ -267,8 +258,7 @@ pub mod cell_node_config {
         }
     }
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct NodeConfig {
     #[prost(string, tag = "1")]
     pub public_key: ::prost::alloc::string::String,
@@ -281,8 +271,7 @@ pub struct NodeConfig {
     #[prost(message, optional, tag = "4")]
     pub addresses: ::core::option::Option<NodeAddresses>,
 }
-#[derive(Serialize, Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, ::prost::Message)]
 pub struct CellApplicationConfig {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
