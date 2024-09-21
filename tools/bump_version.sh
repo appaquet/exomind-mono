@@ -39,7 +39,7 @@ $SED -i.bak "s/\(MARKETING_VERSION =\).*/\1 $VERSION;/g" $EXOMIND_DIR/ios/Exomin
 $SED -i.bak "s/\(CURRENT_PROJECT_VERSION =\).*/\1 $VERSION;/g" $EXOMIND_DIR/ios/Exomind.xcodeproj/project.pbxproj
 
 # All crates
-CRATES=$(find . -name Cargo.toml -not -path '*/node_modules/*')
+CRATES=$(find . -name Cargo.toml -not -path '*/node_modules/*' -not -path '**/3rd/**')
 for TOML_PATH in "${CRATES[@]}"; do
   $SED -i.bak "s/^\(version = \).*/\1\"${VERSION}\"/g" $TOML_PATH
   $SED -i.bak -E "s/(exocore.*version.*\")(${VERSION_RE})(\".*)/\1${VERSION}\4/g" $TOML_PATH
