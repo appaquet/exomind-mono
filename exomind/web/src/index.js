@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 
 import App from './app';
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { initNode } from './exocore';
 import Navigation, { BrowserHistory, setupLinkClickNavigation } from "./navigation";
 import { Shortcuts } from "./shortcuts";
@@ -37,7 +37,6 @@ Promise.all([
     }),
     initNode()
 ]).then(() => {
-    const root = createRoot(document.getElementById('body'));
-    root.render(<App />);
+    ReactDOM.render(<App />, document.getElementById('body'));
     setupLinkClickNavigation();
 });

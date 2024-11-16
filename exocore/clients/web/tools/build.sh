@@ -7,7 +7,7 @@ EXOCORE_ROOT="$CUR_DIR/../../../"
 EXOCORE_WEB_ROOT="$CUR_DIR/../"
 
 pushd $EXOCORE_WEB_ROOT
-wasm-pack build --out-dir=wasm $1
+wasm-pack build --out-dir=wasm --no-opt $1
 rm -f wasm/README.md wasm/.gitignore wasm/package.json
 popd
 
