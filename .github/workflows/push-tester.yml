@@ -532,7 +532,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: 20.10
+          node-version: 20.x
 
       - name: Download exocore ios client
         uses: actions/download-artifact@v4
@@ -586,7 +586,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: 20.10
+          node-version: 20.x
 
       - name: Download exocore web client
         uses: actions/download-artifact@v4
@@ -624,7 +624,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: 20.10
+          node-version: 20.x
 
       - name: Download exocore web client
         uses: actions/download-artifact@v4
