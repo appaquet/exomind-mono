@@ -497,6 +497,15 @@ jobs:
           # Striping first directory as yarn package wraps into a `package` directory
           tar --strip-components=1 -xvzf exocore-web.tar.gz -C exocore/
 
+      - name: Add exo to path
+        run: |
+          cd $GITHUB_WORKSPACE
+          ls -lash
+
+          mv exo-x86_64-unknown-linux-gnu exo
+          chmod +x exo
+          echo `pwd` >> $GITHUB_PATH
+
       - name: Install example project
         run: |
           cd $GITHUB_WORKSPACE/exocore/examples/web
@@ -506,7 +515,7 @@ jobs:
       - name: Run end-to-end tests
         run: |
           cd $GITHUB_WORKSPACE/exocore/examples/web/tests
-          $GITHUB_WORKSPACE/exomind-mono/exo-x86_64-unknown-linux-gnu -d node daemon &
+          exo -d node daemon &
 
           sleep 5
 
