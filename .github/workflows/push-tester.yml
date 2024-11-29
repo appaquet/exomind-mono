@@ -469,33 +469,33 @@ jobs:
 
   exocore_web_client_e2e_test:
     runs-on: ubuntu-latest
-    needs: [exocore_web_client_build]
+    needs: [exocore_web_client_build, exo_build]
 
     timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install build dependencies
-        run: |
-          sudo npm install -g yarn
+      - name: Setup Node
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: 20.x
 
       - name: Download exocore web client
         uses: actions/download-artifact@v4
         with:
           name: exocore-web-client
 
+      - name: Download exo
+        uses: actions/download-artifact@v4
+        with:
+          name: exo-x86_64-unknown-linux-gnu
+
       - name: Unarchive exocore web client
         run: |
           cd $GITHUB_WORKSPACE
           # Striping first directory as yarn package wraps into a `package` directory
           tar --strip-components=1 -xvzf exocore-web.tar.gz -C exocore/
-
-      - name: Build exo
-        run: |
-          # TODO: Should probably be fetched instead...
-          cd $GITHUB_WORKSPACE/exocore
-          ./tools/install.sh --debug
 
       - name: Install example project
         run: |
@@ -506,7 +506,7 @@ jobs:
       - name: Run end-to-end tests
         run: |
           cd $GITHUB_WORKSPACE/exocore/examples/web/tests
-          exo -d node daemon &
+          $GITHUB_WORKSPACE/exo-x86_64-unknown-linux-gnu -d node daemon &
 
           sleep 5
 
