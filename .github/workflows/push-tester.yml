@@ -515,7 +515,7 @@ jobs:
       - name: Run end-to-end tests
         run: |
           cd $GITHUB_WORKSPACE/exocore/examples/web/tests
-          exo -d node daemon &
+          exo -l debug -d node daemon &
 
           sleep 5
 
