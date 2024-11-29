@@ -46,6 +46,8 @@ chain: ~
 `;
 
 test.beforeEach(async ({ page }) => {
+  page.on('console', msg => console.log('Browser console: ' + msg.text()));
+
   await page.goto('http://127.0.0.1:8080');
 });
 
