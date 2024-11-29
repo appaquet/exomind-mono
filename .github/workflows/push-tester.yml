@@ -506,7 +506,7 @@ jobs:
       - name: Run end-to-end tests
         run: |
           cd $GITHUB_WORKSPACE/exocore/examples/web/tests
-          $GITHUB_WORKSPACE/exo-x86_64-unknown-linux-gnu -d node daemon &
+          $GITHUB_WORKSPACE/exomind-mono/exo-x86_64-unknown-linux-gnu -d node daemon &
 
           sleep 5
 
