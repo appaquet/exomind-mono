@@ -502,7 +502,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           ls -lash
 
-          mv exo-x86_64-unknown-linux-gnu exo
+          mv exo.x86_64-unknown-linux-gnu exo
           chmod +x exo
           echo `pwd` >> $GITHUB_PATH
 
