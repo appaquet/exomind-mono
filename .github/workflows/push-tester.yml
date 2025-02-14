@@ -417,7 +417,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
-          targets: wasm32-wasi
+          targets: wasm32-wasip1
 
       - uses: Swatinem/rust-cache@v2
 
@@ -750,7 +750,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
-          targets: wasm32-wasi
+          targets: wasm32-wasip1
 
       - uses: Swatinem/rust-cache@v2
 
